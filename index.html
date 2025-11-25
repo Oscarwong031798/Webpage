@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Favorite Song</title>
+
+    <!-- CSS styling -->
+    <style>
+        body {
+            background-color: #1b1b1b;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ffcc00;
+            font-size: 3rem;
+        }
+
+        /* Animated box */
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: #00aaff;
+            position: relative;
+            margin: 40px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>My Favorite Song</h1>
+
+    <p>Here is a music video I like!</p>
+
+    <!-- Embedded YouTube video -->
+    <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+        frameborder="0" allowfullscreen>
+    </iframe>
+
+    <!-- A box that will animate -->
+    <div id="box"></div>
+
+    <!-- JavaScript Animation -->
+    <script>
+        let box = document.getElementById("box");
+        let position = 0;
+        let direction = 1;
+
+        function animateBox() {
+            position += direction * 2;
+
+            // reverse direction when hitting boundaries
+            if (position > 200 || position < 0) {
+                direction *= -1;
+            }
+
+            box.style.left = position + "px";
+            requestAnimationFrame(animateBox);
+        }
+
+        animateBox();
+    </script>
+</body>
+</html>
